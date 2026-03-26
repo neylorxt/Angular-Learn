@@ -1,5 +1,6 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ItemModel } from '../model/item.model';
 
 @Component({
   selector: 'app-item',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
   templateUrl: './item.html',
   styleUrl: './item.css',
 })
-export class Item {}
+export class Item {
+  @Input() itemData: ItemModel = new ItemModel();
+}
