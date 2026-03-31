@@ -1,10 +1,20 @@
 <div>
-  <h1>{{ title() }}</h1>
+  <h1 class="text-center font-bold text-3xl my-5">{{ title() }}</h1>
 
-  <div class="flex flex-wrap gap-4 justify-center">
-    @for (item of items; track $index) {
-    <app-item [itemData]="item"></app-item>
-    }
+  <div class="border py-5">
+    <div class="mx-5">
+      <label for="research" class="block mb-2 font-bold">Search Items:
+        <input type="text" [value]="researchModel()" (input)="onSearchInput($event.target.value)"
+          placeholder="Search Items" class="border p-2 rounded-lg w-full mb-3" />
+      </label>
+    </div>
+    <div class="flex flex-wrap gap-4 justify-center">
+      @for (item of filteredItems(); track $index) {
+      <app-item [itemData]="item"></app-item>
+      }@empty {
+      <p class="text-center text-gray-500">Il n'y a aucun item à afficher.</p>
+      }
+    </div>
   </div>
 </div>
 <router-outlet />

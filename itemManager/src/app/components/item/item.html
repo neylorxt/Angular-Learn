@@ -1,12 +1,10 @@
-<div class="bg-red-200 w-100 p-2">
-    <h2>Item Component</h2>
+<div class="bg-red-100 w-full p-2 rounded-2xl">
 
     <div>
-        <div class="border">
-            <img ngSrc="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular Logo" width="200"
-                height="200" class="mx-auto" />
+        <div class="">
+            <img [ngSrc]="itemData.src" alt="Item Logo" width="50" height="50" class="mx-auto" />
         </div>
-        <div class="border">
+        <div class="border-t-2 border-gray-300 my-2">
             <h3>{{ itemData.name }}</h3>
             <p>{{ itemData.description }}</p>
         </div>
