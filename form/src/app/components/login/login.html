@@ -1,0 +1,47 @@
+<style>
+    input {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        border-radius: 4px;
+        flex-grow: 1;
+    }
+
+    input:focus {
+        border-color: #4A90E2;
+        outline: none;
+        box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    }
+</style>
+
+<div class="
+    border border-blue-700 p-4 max-w-150 mx-auto
+    rounded-lg shadow-md">
+    <h2 class="text-center my-5 text-2xl font-bold font-mono">Login Page</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()" class="flex flex-col gap-4">
+        <div class="flex gap-2">
+            <label for="username" class="grow">Username:</label>
+            <input type="text" id="username" name="username" formControlName="username" />
+        </div>
+
+        <div class="flex gap-2">
+            <label for="password" class="grow">Password:</label>
+            <input type="password" id="password" name="password" formControlName="password" />
+        </div>
+
+        <button type="submit" class="bg-blue-500 text-white py-2 px-4 
+            rounded hover:bg-blue-600 focus:outline-none focus:ring-2 
+            focus:ring-blue-300
+            cursor-pointer">Login</button>
+    </form>
+
+    @if (loginForm.valid) {
+    <div>
+        <p>Name: {{ loginForm.value.username }}</p>
+        <p>Password: {{ loginForm.value.password }}</p>
+    </div>
+    }
+
+    <p class="text-center text-gray-500 text-sm mt-4">
+        Don't have an account? <a href="/register" class="text-blue-500 hover:underline">Register here</a>
+    </p>
+</div>
